@@ -4,13 +4,18 @@
  */
 package com.salonhabana.layouts;
 
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author sersu
  */
 public class Reserva extends javax.swing.JDialog {
 
-    private String TIPO_COCINA[] = new String[] {"Bufé","Bufé vegetariano","Carta","Pedir cita con chef","No precisa"};
+    private  String TIPO_COCINA[] = new String[] {"Bufé","Bufé vegetariano","Carta","Pedir cita con chef","No precisa"};
+    private static final String TIPO_HABITACION[] = new String[] {"Individual", "Doble dos camas", "Doble cama matrimonio"};
+    private int frameWidth = 455; //421
+    private int frameHeigh = 355; //455
     //private static final String 
     
     /**
@@ -74,20 +79,35 @@ public class Reserva extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reserva");
 
+        lblNombre.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblNombre.setText("Nombre:");
 
+        txfNombre.setToolTipText("Escriba su nombre");
+
+        lblTelefono.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblTelefono.setText("Teléfono:");
 
+        lblDireccion.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblDireccion.setText("Dirección:");
 
-        txfDireccion.setToolTipText("Dirección");
+        txfDireccion.setToolTipText("Indique su calle con número, puerta, pis, etc");
 
+        lblFecha.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblFecha.setText("Fecha Evento:");
 
+        spiFechaEvento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         spiFechaEvento.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.DAY_OF_YEAR));
+        spiFechaEvento.setToolTipText("Establezca cuándo se realizará el evento");
 
+        spiNumPerso.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        spiNumPerso.setModel(new javax.swing.SpinnerNumberModel(Short.valueOf((short)1), Short.valueOf((short)1), Short.valueOf((short)50), Short.valueOf((short)1)));
+        spiNumPerso.setToolTipText("Escriba cuántas personas assistirán al evento");
+
+        cmbTipCocina.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         cmbTipCocina.setModel(new javax.swing.DefaultComboBoxModel<>(this.TIPO_COCINA.clone()));
+        cmbTipCocina.setToolTipText("Indique qué tipo de cocina se empleará");
 
+        btnAceptar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +115,7 @@ public class Reserva extends javax.swing.JDialog {
             }
         });
 
+        btnCancelar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,10 +123,15 @@ public class Reserva extends javax.swing.JDialog {
             }
         });
 
+        txfTelefono.setToolTipText("Escriba su teléfono");
+
+        lblNumPerso.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblNumPerso.setText("NºPersonas:");
 
+        lblTipCocina.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblTipCocina.setText("Tipo de Cocina:");
 
+        rbtCongreso.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         rbtCongreso.setText("Congreso");
         rbtCongreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +139,7 @@ public class Reserva extends javax.swing.JDialog {
             }
         });
 
+        rbtBanquete.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         rbtBanquete.setText("Banquete");
         rbtBanquete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,8 +147,10 @@ public class Reserva extends javax.swing.JDialog {
             }
         });
 
+        lblTipEvento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblTipEvento.setText("Tipo evento:");
 
+        rbtJornada.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         rbtJornada.setText("Jornada");
         rbtJornada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,14 +158,21 @@ public class Reserva extends javax.swing.JDialog {
             }
         });
 
-        panOpEvento.setBackground(new java.awt.Color(255, 153, 153));
+        panOpEvento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panOpEvento.setVisible(false);
 
+        lblNumJorn.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblNumJorn.setText("NºJornadas:");
         panOpEvento.add(lblNumJorn);
+
+        spiNumJorn.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        spiNumJorn.setToolTipText("La duración del evento en jornadas");
+        spiNumJorn.setPreferredSize(new java.awt.Dimension(64, 29));
         panOpEvento.add(spiNumJorn);
 
+        chbReqHabitacio.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         chbReqHabitacio.setText("¿Requiere de habitación?");
+        chbReqHabitacio.setToolTipText("Deséa incluir habitaciones");
         chbReqHabitacio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hlrChbReqHabitacio(evt);
@@ -144,10 +180,13 @@ public class Reserva extends javax.swing.JDialog {
         });
         panOpEvento.add(chbReqHabitacio);
 
+        lblTipHabitacion.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblTipHabitacion.setText("Tipo Habitación:");
         panOpEvento.add(lblTipHabitacion);
 
-        cmbTipHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTipHabitacion.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        cmbTipHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(Reserva.TIPO_HABITACION));
+        cmbTipHabitacion.setToolTipText("Escoja cómo será la habitación");
         cmbTipHabitacion.setEnabled(false);
         panOpEvento.add(cmbTipHabitacion);
 
@@ -159,15 +198,16 @@ public class Reserva extends javax.swing.JDialog {
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(lblTipEvento)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panOpEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rbtBanquete)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbtJornada)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbtCongreso)))
-                .addGap(17, 17, 17))
+                .addComponent(rbtBanquete)
+                .addGap(18, 18, 18)
+                .addComponent(rbtJornada)
+                .addGap(18, 18, 18)
+                .addComponent(rbtCongreso)
+                .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(panOpEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,8 +219,7 @@ public class Reserva extends javax.swing.JDialog {
                     .addComponent(rbtJornada)
                     .addComponent(rbtCongreso))
                 .addGap(18, 18, 18)
-                .addComponent(panOpEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panOpEvento, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,43 +228,40 @@ public class Reserva extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblDireccion)
-                                        .addComponent(lblNombre))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblTelefono)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txfTelefono))
-                                        .addComponent(txfDireccion)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(192, 192, 192)
-                                    .addComponent(lblTipCocina)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cmbTipCocina, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(spiFechaEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(btnAceptar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCancelar)
-                        .addGap(51, 51, 51)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lblNumPerso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spiNumPerso, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(260, 260, 260))
+                        .addGap(51, 51, 51))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblDireccion)
+                                        .addComponent(lblNombre))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(lblTelefono)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                                        .addComponent(txfDireccion)))
+                                .addComponent(spiFechaEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNumPerso)
+                                .addGap(18, 18, 18)
+                                .addComponent(spiNumPerso, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(lblTipCocina)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbTipCocina, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblFecha)
@@ -246,9 +282,10 @@ public class Reserva extends javax.swing.JDialog {
                     .addComponent(txfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNumPerso)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(spiNumPerso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNumPerso)
+                        .addComponent(spiNumPerso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTipCocina)
                         .addComponent(cmbTipCocina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -261,7 +298,7 @@ public class Reserva extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAceptar))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -277,7 +314,7 @@ public class Reserva extends javax.swing.JDialog {
     }//GEN-LAST:event_halrOnClickAceptar
 
     private void halrOnClickCancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halrOnClickCancelar
-        // TODO: Go to main title.
+        this.dispose();
     }//GEN-LAST:event_halrOnClickCancelar
 
     private void hlrChbReqHabitacio(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrChbReqHabitacio
@@ -285,18 +322,23 @@ public class Reserva extends javax.swing.JDialog {
     }//GEN-LAST:event_hlrChbReqHabitacio
 
     private void hlrRbtCongreso(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrRbtCongreso
-        this.setSize(465, 425);
+        this.setSize(this.getSize().width + 20, this.getSize().height + 110);
         this.panOpEvento.setVisible(true);
+        this.spiNumPerso.setModel(new SpinnerNumberModel(Short.valueOf((short)1), Short.valueOf((short)1), Short.valueOf((short)50), Short.valueOf((short)1)));
     }//GEN-LAST:event_hlrRbtCongreso
 
     private void hlrRbtJornada(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrRbtJornada
         this.panOpEvento.setVisible(false);
-        this.setSize(465, 370);
+        //this.setSize(465, 370);
+        this.setSize(this.frameWidth, this.frameHeigh);
+        this.spiNumPerso.setModel(new SpinnerNumberModel(Short.valueOf((short)1), Short.valueOf((short)1), Short.valueOf((short)50), Short.valueOf((short)1)));
     }//GEN-LAST:event_hlrRbtJornada
 
     private void hlrRbtBanquete(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrRbtBanquete
         this.panOpEvento.setVisible(false);
-        this.setSize(465, 370);
+        //this.setSize(465, 370);
+        this.setSize(this.frameWidth, this.frameHeigh);
+        this.spiNumPerso.setModel(new SpinnerNumberModel(Short.valueOf((short)1), Short.valueOf((short)1), Short.valueOf((short)100), Short.valueOf((short)1)));
     }//GEN-LAST:event_hlrRbtBanquete
 
     /**

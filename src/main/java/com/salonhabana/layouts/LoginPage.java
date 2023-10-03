@@ -4,6 +4,7 @@
  */
 package com.salonhabana.layouts;
 
+import java.awt.image.BufferedImage;
 import javax.swing.JDialog;
 
 /**
@@ -17,6 +18,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+        this.setTitle("Salon Habana - Gestor");
     }
 
     /**
@@ -29,6 +31,12 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         btnLogin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        menFormulario = new javax.swing.JMenu();
+        mniReserva = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 100));
@@ -41,6 +49,31 @@ public class LoginPage extends javax.swing.JFrame {
         });
         getContentPane().add(btnLogin);
 
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel1.setText("Salomón López Chian");
+        getContentPane().add(jLabel1);
+
+        jMenu1.setText("Archivo");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Editar");
+        jMenuBar1.add(jMenu2);
+
+        menFormulario.setText("Formulario");
+
+        mniReserva.setText("Salon Habana");
+        mniReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlrReserva(evt);
+            }
+        });
+        menFormulario.add(mniReserva);
+
+        jMenuBar1.add(menFormulario);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -48,6 +81,11 @@ public class LoginPage extends javax.swing.JFrame {
         this.dialogo = new Reserva(this, true);
         this.dialogo.setVisible(true);
     }//GEN-LAST:event_lisGoToReserva
+
+    private void hlrReserva(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrReserva
+        this.dialogo = new Reserva(this, true);
+        this.dialogo.setVisible(true);
+    }//GEN-LAST:event_hlrReserva
 
     /**
      * @param args the command line arguments
@@ -86,6 +124,13 @@ public class LoginPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menFormulario;
+    private javax.swing.JMenuItem mniReserva;
     // End of variables declaration//GEN-END:variables
     private JDialog dialogo;
+    private BufferedImage salonHabanaImg;
 }
