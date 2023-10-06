@@ -32,6 +32,8 @@ public class PanTipoEvento extends javax.swing.JPanel {
         lblTipHabitacion = new javax.swing.JLabel();
         cmbTipHabitacion = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 0, 51));
+
         lblNumJorn.setText("NºJornadas:");
         add(lblNumJorn);
         add(spiNumJorn);

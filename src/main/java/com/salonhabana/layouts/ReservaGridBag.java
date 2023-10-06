@@ -4,8 +4,10 @@
  */
 package com.salonhabana.layouts;
 
+import java.awt.CardLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,12 +15,15 @@ import java.awt.GridBagLayout;
  */
 public class ReservaGridBag extends javax.swing.JDialog {
 
+    private static final String btgItems[] = new String[] {"Banquete", "Jornada", "Congreso"};
+    
     /**
      * Creates new form ReservaGridBag
      */
     public ReservaGridBag(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.customInit();
     }
 
     /**
@@ -46,10 +51,6 @@ public class ReservaGridBag extends javax.swing.JDialog {
         rbtBanquete = new javax.swing.JRadioButton();
         rbtJornada = new javax.swing.JRadioButton();
         rbtCongreso = new javax.swing.JRadioButton();
-        panOpEvento = new javax.swing.JPanel();
-        spiNumJorn = new javax.swing.JSpinner();
-        chbReqHabitacio = new javax.swing.JCheckBox();
-        cmbTipHabitacion = new javax.swing.JComboBox<>();
         lblNumPersonas = new javax.swing.JLabel();
         spiNumPerso = new javax.swing.JSpinner();
         lblTipCocina = new javax.swing.JLabel();
@@ -63,6 +64,10 @@ public class ReservaGridBag extends javax.swing.JDialog {
         jButton38.setText("jButton38");
 
         jButton54.setText("jButton54");
+
+        btgTipoEvento.add(this.rbtBanquete);
+        btgTipoEvento.add(this.rbtJornada);
+        btgTipoEvento.add(this.rbtCongreso);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reserva");
@@ -119,46 +124,37 @@ public class ReservaGridBag extends javax.swing.JDialog {
         getContentPane().add(lblTipEvento, gridBagConstraints);
 
         rbtBanquete.setText("Banquete");
+        rbtBanquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlrRbtBanquete(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
         getContentPane().add(rbtBanquete, gridBagConstraints);
 
         rbtJornada.setText("Jornada");
+        rbtJornada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlrRbtJornada(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 9;
         getContentPane().add(rbtJornada, gridBagConstraints);
 
         rbtCongreso.setText("Congreso");
+        rbtCongreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hlrRbtCongreso(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 9;
         getContentPane().add(rbtCongreso, gridBagConstraints);
-
-        panOpEvento.setBackground(new java.awt.Color(255, 153, 153));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        getContentPane().add(panOpEvento, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        getContentPane().add(spiNumJorn, gridBagConstraints);
-
-        chbReqHabitacio.setText("¿Requiere de habitación?");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        getContentPane().add(chbReqHabitacio, gridBagConstraints);
-
-        cmbTipHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        getContentPane().add(cmbTipHabitacion, gridBagConstraints);
 
         lblNumPersonas.setText("NºPersonas:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -190,7 +186,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         getContentPane().add(btnAceptar, gridBagConstraints);
 
         btnCancelar.setText("Cancelar");
@@ -201,7 +197,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         getContentPane().add(btnCancelar, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -211,13 +207,44 @@ public class ReservaGridBag extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void customInit() {
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        this.card = new CardLayout();
+        this.panTipEvento = new JPanel(this.card);
+        JPanel emptyPanel = new JPanel();
+        emptyPanel.setOpaque(false);
+        
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.weightx = 3;
+        
+        this.panTipEvento.add(emptyPanel, ReservaGridBag.btgItems[0]);
+        this.panTipEvento.add(emptyPanel, ReservaGridBag.btgItems[1]);
+        this.panTipEvento.add(new PanTipoEvento(), ReservaGridBag.btgItems[2]);
+        
+        getContentPane().add(this.panTipEvento, gridBagConstraints);
+    }
+    
     private void halrOnClickAceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halrOnClickAceptar
         // TODO: Go to main title
     }//GEN-LAST:event_halrOnClickAceptar
 
     private void halrOnClickCancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halrOnClickCancelar
-        // TODO: Go to main title.
+        this.dispose();
     }//GEN-LAST:event_halrOnClickCancelar
+
+    private void hlrRbtBanquete(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrRbtBanquete
+        this.card.show(this.panTipEvento, ReservaGridBag.btgItems[0]);
+    }//GEN-LAST:event_hlrRbtBanquete
+
+    private void hlrRbtJornada(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrRbtJornada
+        this.card.show(this.panTipEvento, ReservaGridBag.btgItems[1]);
+    }//GEN-LAST:event_hlrRbtJornada
+
+    private void hlrRbtCongreso(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrRbtCongreso
+        this.card.show(this.panTipEvento, ReservaGridBag.btgItems[2]);
+    }//GEN-LAST:event_hlrRbtCongreso
 
     /**
      * @param args the command line arguments
@@ -266,9 +293,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
     private javax.swing.ButtonGroup btgTipoEvento;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JCheckBox chbReqHabitacio;
     private javax.swing.JComboBox<String> cmbTipCocina;
-    private javax.swing.JComboBox<String> cmbTipHabitacion;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton54;
@@ -279,15 +304,15 @@ public class ReservaGridBag extends javax.swing.JDialog {
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTipCocina;
     private javax.swing.JLabel lblTipEvento;
-    private javax.swing.JPanel panOpEvento;
     private javax.swing.JRadioButton rbtBanquete;
     private javax.swing.JRadioButton rbtCongreso;
     private javax.swing.JRadioButton rbtJornada;
     private javax.swing.JSpinner spiFechaEvento;
-    private javax.swing.JSpinner spiNumJorn;
     private javax.swing.JSpinner spiNumPerso;
     private javax.swing.JTextField txfDireccion;
     private javax.swing.JTextField txfNombre;
     private javax.swing.JTextField txfTelefono;
     // End of variables declaration//GEN-END:variables
+    private CardLayout card;
+    private JPanel panTipEvento;
 }

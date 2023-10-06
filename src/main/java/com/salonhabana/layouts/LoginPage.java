@@ -77,14 +77,21 @@ public class LoginPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lisGoToReserva(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisGoToReserva
-        this.dialogo = new Reserva(this, true);
+    private void goToReserva() {
+        this.dialogo = new ReservaGridBag(this, true);
         this.dialogo.setVisible(true);
+    }
+    
+    private void lisGoToReserva(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisGoToReserva
+        //this.dialogo = new ReservaGridBag(this, true);
+        //this.dialogo.setVisible(true);
+        this.goToReserva();
     }//GEN-LAST:event_lisGoToReserva
 
     private void hlrReserva(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrReserva
-        this.dialogo = new Reserva(this, true);
-        this.dialogo.setVisible(true);
+        //this.dialogo = new Reserva(this, true);
+        //this.dialogo.setVisible(true);
+        this.goToReserva();
     }//GEN-LAST:event_hlrReserva
 
     /**
