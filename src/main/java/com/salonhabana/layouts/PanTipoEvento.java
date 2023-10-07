@@ -26,32 +26,52 @@ public class PanTipoEvento extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panNumJor = new javax.swing.JPanel();
         lblNumJorn = new javax.swing.JLabel();
         spiNumJorn = new javax.swing.JSpinner();
+        panReqHabit = new javax.swing.JPanel();
         chbReqHabitacio = new javax.swing.JCheckBox();
+        panTipHabit = new javax.swing.JPanel();
         lblTipHabitacion = new javax.swing.JLabel();
         cmbTipHabitacion = new javax.swing.JComboBox<>();
 
-        setBackground(new java.awt.Color(255, 0, 51));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
+
+        panNumJor.setOpaque(false);
 
         lblNumJorn.setText("NºJornadas:");
-        add(lblNumJorn);
-        add(spiNumJorn);
+        lblNumJorn.setAlignmentX(0.5F);
+        lblNumJorn.setAlignmentY(0.0F);
+        panNumJor.add(lblNumJorn);
+        panNumJor.add(spiNumJorn);
+
+        add(panNumJor);
+
+        panReqHabit.setOpaque(false);
 
         chbReqHabitacio.setText("¿Requiere de habitación?");
+        chbReqHabitacio.setAlignmentX(0.5F);
+        chbReqHabitacio.setAlignmentY(1.0F);
         chbReqHabitacio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hlrChbReqHabitacio(evt);
             }
         });
-        add(chbReqHabitacio);
+        panReqHabit.add(chbReqHabitacio);
+
+        add(panReqHabit);
+
+        panTipHabit.setOpaque(false);
 
         lblTipHabitacion.setText("Tipo Habitación:");
-        add(lblTipHabitacion);
+        panTipHabit.add(lblTipHabitacion);
 
         cmbTipHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbTipHabitacion.setEnabled(false);
-        add(cmbTipHabitacion);
+        panTipHabit.add(cmbTipHabitacion);
+
+        add(panTipHabit);
     }// </editor-fold>//GEN-END:initComponents
 
     private void hlrChbReqHabitacio(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hlrChbReqHabitacio
@@ -64,6 +84,9 @@ public class PanTipoEvento extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbTipHabitacion;
     private javax.swing.JLabel lblNumJorn;
     private javax.swing.JLabel lblTipHabitacion;
+    private javax.swing.JPanel panNumJor;
+    private javax.swing.JPanel panReqHabit;
+    private javax.swing.JPanel panTipHabit;
     private javax.swing.JSpinner spiNumJorn;
     // End of variables declaration//GEN-END:variables
 }

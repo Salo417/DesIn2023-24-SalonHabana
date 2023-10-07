@@ -39,7 +39,7 @@ public class LoginPage extends javax.swing.JFrame {
         mniReserva = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 100));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnLogin.setText("Iniciar sesión");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -47,12 +47,12 @@ public class LoginPage extends javax.swing.JFrame {
                 lisGoToReserva(evt);
             }
         });
-        getContentPane().add(btnLogin);
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 100, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setText("Salomón López Chian");
-        getContentPane().add(jLabel1);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 222, -1, -1));
 
         jMenu1.setText("Archivo");
         jMenuBar1.add(jMenu1);

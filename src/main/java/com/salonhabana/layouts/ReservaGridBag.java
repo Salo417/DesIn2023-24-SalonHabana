@@ -5,6 +5,7 @@
 package com.salonhabana.layouts;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JPanel;
@@ -40,6 +41,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         jButton38 = new javax.swing.JButton();
         jButton54 = new javax.swing.JButton();
         btgTipoEvento = new javax.swing.ButtonGroup();
+        jPanel9 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         txfNombre = new javax.swing.JTextField();
         lblTelefono = new javax.swing.JLabel();
@@ -58,6 +60,14 @@ public class ReservaGridBag extends javax.swing.JDialog {
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txfTelefono = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
 
         jButton14.setText("jButton14");
 
@@ -71,6 +81,8 @@ public class ReservaGridBag extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reserva");
+        setMinimumSize(new java.awt.Dimension(364, 459));
+        setPreferredSize(new java.awt.Dimension(364, 459));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         lblNombre.setText("Nombre:");
@@ -81,6 +93,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(txfNombre, gridBagConstraints);
 
         lblTelefono.setText("Teléfono:");
@@ -164,6 +177,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(spiNumPerso, gridBagConstraints);
 
         lblTipCocina.setText("Tipo de Cocina");
@@ -176,6 +190,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(cmbTipCocina, gridBagConstraints);
 
         btnAceptar.setText("Aceptar");
@@ -187,6 +202,7 @@ public class ReservaGridBag extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnAceptar, gridBagConstraints);
 
         btnCancelar.setText("Cancelar");
@@ -198,11 +214,100 @@ public class ReservaGridBag extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnCancelar, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(txfTelefono, gridBagConstraints);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel1, gridBagConstraints);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel2.setOpaque(false);
+        jPanel2.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel2, gridBagConstraints);
+
+        jPanel3.setBackground(new java.awt.Color(51, 0, 204));
+        jPanel3.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel3.setOpaque(false);
+        jPanel3.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel3, gridBagConstraints);
+
+        jPanel4.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel4.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel4.setOpaque(false);
+        jPanel4.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel4, gridBagConstraints);
+
+        jPanel5.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel5.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel5.setOpaque(false);
+        jPanel5.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel5, gridBagConstraints);
+
+        jPanel6.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel6.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel6.setOpaque(false);
+        jPanel6.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel6, gridBagConstraints);
+
+        jPanel7.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel7.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel7.setOpaque(false);
+        jPanel7.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel7, gridBagConstraints);
+
+        jPanel8.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel8.setMinimumSize(new java.awt.Dimension(22, 22));
+        jPanel8.setOpaque(false);
+        jPanel8.setPreferredSize(new java.awt.Dimension(22, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(jPanel8, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,7 +322,8 @@ public class ReservaGridBag extends javax.swing.JDialog {
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.weightx = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         
         this.panTipEvento.add(emptyPanel, ReservaGridBag.btgItems[0]);
         this.panTipEvento.add(emptyPanel, ReservaGridBag.btgItems[1]);
@@ -297,6 +403,15 @@ public class ReservaGridBag extends javax.swing.JDialog {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton54;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblNombre;
